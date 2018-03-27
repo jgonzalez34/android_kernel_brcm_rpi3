@@ -76,6 +76,7 @@ dtbo-$(RPI_DT_OVERLAYS) += pwm.dtbo
 dtbo-$(RPI_DT_OVERLAYS) += pwm-2chan.dtbo
 dtbo-$(RPI_DT_OVERLAYS) += qca7000.dtbo
 dtbo-$(RPI_DT_OVERLAYS) += raspidac3.dtbo
+dtbo-$(RPI_DT_OVERLAYS) += rotary-encoder.dtbo
 dtbo-$(RPI_DT_OVERLAYS) += rpi-backlight.dtbo
 dtbo-$(RPI_DT_OVERLAYS) += rpi-dac.dtbo
 dtbo-$(RPI_DT_OVERLAYS) += rpi-display.dtbo

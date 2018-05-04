@@ -17,12 +17,12 @@
 					gpios = <&gpio 23 1>;   /* GPIO 23 */
 					wakeup-source;
 				};
-        rotaryB@24 {
-          label = "rotaryB";
+        			rotaryB@24 {
+          				label = "rotaryB";
 					linux,code = <60>;      /* F2 Key */
 					gpios = <&gpio 24 1>;   /* GPIO 24 */
 					wakeup-source;
-        };
+        			};
 			};
 		};
 	};

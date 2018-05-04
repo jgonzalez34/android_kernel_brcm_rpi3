@@ -7,14 +7,14 @@
 	fragment@0 {	
 		target-path = "/";
 		__overlay__ {
-			keypad: keypad {
+			keypad: proximity {
 				compatible = "gpio-keys";
 				#address-cells = <1>;
 				#size-cells = <0>;
-				proximity@13 {
+				proximity@17 {
 					label = "proximity detection";
-					linux,code = <29>;
-					gpios = <&gpio 17 1>;
+					linux,code = <29>;		/* L CTRL Key */
+					gpios = <&gpio 17 1>;		/* GPIO 17 */
 					wakeup-source;
 				};
 			};

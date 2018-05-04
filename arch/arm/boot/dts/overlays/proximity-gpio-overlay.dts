@@ -15,6 +15,7 @@
 					label = "proximity detection";
 					linux,code = <29>;
 					gpios = <&gpio 17 1>;
+					wakeup-source;
 				};
 			};
 		};

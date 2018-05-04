@@ -1,0 +1,29 @@
+// Device tree overlay for GPIO-based rotary encoder.
+/dts-v1/;
+/plugin/;
+/ {
+	compatible = "brcm,bcm2835", "brcm,bcm2708", "brcm,bcm2709";
+
+	fragment@0 {	
+		target-path = "/";
+		__overlay__ {
+			keypad: rotary-gpio {
+				compatible = "gpio-keys";
+				#address-cells = <1>;
+				#size-cells = <0>;
+				rotaryA@23 {
+					label = "rotaryA";
+					linux,code = <59>;      /* F1 Key */ 
+					gpios = <&gpio 23 1>;   /* GPIO 23 */
+					wakeup-source;
+				};
+        rotaryB@24 {
+          label = "rotaryB";
+					linux,code = <60>;      /* F2 Key */
+					gpios = <&gpio 24 1>;   /* GPIO 24 */
+					wakeup-source;
+        };
+			};
+		};
+	};
+};

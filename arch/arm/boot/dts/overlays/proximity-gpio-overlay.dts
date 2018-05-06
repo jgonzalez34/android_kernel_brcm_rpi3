@@ -14,7 +14,7 @@
 				proximity@17 {
 					label = "proximity detection";
 					linux,code = <61>;		/* F3 Key */
-					gpios = <&gpio 17 1>;		/* GPIO 17 */
+					gpios = <&gpio 17 0>;		/* GPIO 17 */
 					wakeup-source;
 				};
 			};

@@ -15,7 +15,7 @@
 					label = "rotaryA";
 					linux,code = <59>;      /* F1 Key */ 
 					gpios = <&gpio 23 1>;   /* GPIO 23 */
-					debounce-interval = <20>;
+					debounce-interval = <50>;
 					wakeup-source;
 					linux,can-disable;
 				};
@@ -23,7 +23,7 @@
           				label = "rotaryB";
 					linux,code = <60>;      /* F2 Key */
 					gpios = <&gpio 24 1>;   /* GPIO 24 */
-					debounce-interval = <20>;
+					debounce-interval = <50>;
 					wakeup-source;
 					linux,can-disable;
         			};

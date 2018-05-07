@@ -9,7 +9,7 @@
 		target = <&gpio>;
 		__overlay__ {
 			pin_state: button_pins@0 {
-				brcm,pins = <59 60>; 	// gpio 59 60
+				brcm,pins = <23 24>; 	// gpio 23 24
 				brcm,function = <0 0>; 	// 0 = input, 1 = output
 				brcm,pull = <1 1>; 	// 0 = none, 1 = pull down, 2 = pull up
 			};
@@ -40,11 +40,11 @@
 	};
 	
 	__overrides__ {
-		gpioA =      <&rotaryA>,"gpios:59",
+		gpioA =      <&rotaryA>,"gpios:23",
 		             <&key>,"reg:0",
 		             <&pin_state>,"brcm,pins:0",
 		             <&pin_state>,"reg:0";
-		gpioB =	     <&rotaryB>,"gpios:60",
+		gpioB =	     <&rotaryB>,"gpios:24",
 		             //<&key>,"reg:0",
 		             <&pin_state>,"brcm,pins:0",
 		             <&pin_state>,"reg:0";

@@ -9,9 +9,9 @@
 		target = <&gpio>;
 		__overlay__ {
 			rotary_pins: rotary_pins@4 {
-				brcm,pins = <23 24>; /* gpio 23 24 */
-				brcm,function = <0 0>; /* input */
-				brcm,pull = <2 2>; /* pull-up */
+				brcm,pins = <23 24>; 	// gpio 23 24
+				brcm,function = <0 0>; 	// 0 = input, 1 = output
+				brcm,pull = <1 1>; 	// 0 = none, 1 = pull down, 2 = pull up
 			};
 
 		};
@@ -30,6 +30,8 @@
 				rotary-encoder,encoding = "gray";
 				rotary-encoder,steps = <24>; /* 24 default */
 				rotary-encoder,steps-per-period = <1>; /* corresponds to full period mode. See README */
+				rotary-encoder,rollover;
+				wakeup-source;
 			};
 		};
 

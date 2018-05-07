@@ -3,27 +3,58 @@
 /plugin/;
 / {
 	compatible = "brcm,bcm2835", "brcm,bcm2708", "brcm,bcm2709";
+	
+	fragment@0 {
+		// Configure the gpio pin controller
+		target = <&gpio>;
+		__overlay__ {
+			pin_state: button_pins@0 {
+				brcm,pins = <59 60>; 	// gpio 59 60
+				brcm,function = <0 0>; 	// 0 = input, 1 = output
+				brcm,pull = <1 1>; 	// 0 = none, 1 = pull down, 2 = pull up
+			};
+		};
+	};
 
-	fragment@0 {	
+	fragment@1 {	
 		target-path = "/";
 		__overlay__ {
-			keypad: rotary-gpio {
+			key: rotary-gpio {
 				compatible = "gpio-keys";
 				#address-cells = <1>;
 				#size-cells = <0>;
-				rotaryA@23 {
+				rotaryA: rotaryA@23 {
 					label = "rotaryA";
-					linux,code = <59>;      /* F1 Key */ 
-					gpios = <&gpio 23 0>;   /* GPIO 23 */					
+					linux,code = <59>;      // F1 Key
+					gpios = <&gpio 23 0>;   // GPIO 23				
 					wakeup-source;					
 				};
-        			rotaryB@24 {
+        			rotaryB: rotaryB@24 {				
           				label = "rotaryB";
-					linux,code = <60>;      /* F2 Key */
-					gpios = <&gpio 24 0>;   /* GPIO 24 */					
+					linux,code = <60>;      // F2 Key
+					gpios = <&gpio 24 0>;   // GPIO 24					
 					wakeup-source;					
         			};
 			};
 		};
+	};
+	
+	__overrides__ {
+		gpioA =      <&rotaryA>,"gpios:59",
+		             <&key>,"reg:0",
+		             <&pin_state>,"brcm,pins:0",
+		             <&pin_state>,"reg:0";
+		gpioB =	     <&rotaryB>,"gpios:60",
+		             //<&key>,"reg:0",
+		             <&pin_state>,"brcm,pins:0",
+		             <&pin_state>,"reg:0";
+		labelA =     <&rotaryA>,"label";
+		labelB =     <&rotaryB>,"label";
+		keycodeA =   <&rotaryA>,"linux,code:0";
+		keycodeB =   <&rotaryB>,"linux,code:0";
+		gpio_pullA = <&pin_state>,"brcm,pull:0";
+		gpio_pullB = <&pin_state>,"brcm,pull:0";		
+		active_lowA =<&rotaryA>,"gpios:0";
+		active_lowB =<&rotaryB>,"gpios:0";
 	};
 };

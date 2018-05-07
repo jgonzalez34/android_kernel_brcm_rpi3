@@ -1,23 +1,49 @@
-// Device tree overlay for GPIO-based proximity sensor.
+// Device tree overlay for GPIO-based proximity sensor
 /dts-v1/;
 /plugin/;
 / {
 	compatible = "brcm,bcm2835", "brcm,bcm2708", "brcm,bcm2709";
 
-	fragment@0 {	
+	
+	fragment@0 {
+		// Configure the gpio pin controller
+		target = <&gpio>;
+		__overlay__ {
+			pin_state: key_pins@0 {
+				brcm,pins = <17>; 	// gpio number
+				brcm,function = <0>; 	// 0 = input, 1 = output
+				brcm,pull = <2>; 	// 0 = none, 1 = pull down, 2 = pull up
+			};
+		};
+	};
+		
+	fragment@1 {	
 		target-path = "/";
 		__overlay__ {
-			keypad: proximity {
+			keypad: proximity@0 {
 				compatible = "gpio-keys";
 				#address-cells = <1>;
 				#size-cells = <0>;
-				proximity@17 {
+				
+				key: proximity {
 					label = "proximity detection";
-					linux,code = <61>;		/* F3 Key */
-					gpios = <&gpio 17 0>;		/* GPIO 17 */
+					linux,code = <61>;		// F3 Key
+					gpios = <&gpio 17 1>;		// GPIO 17
 					wakeup-source;
 				};
 			};
 		};
+	};
+	
+	__overrides__ {
+		gpio =       <&key>,"gpios:17",
+		             <&keypad>,"reg:0",
+		             <&pin_state>,"brcm,pins:0",
+		             <&pin_state>,"reg:0";
+		label =      <&key>,"label";
+		keycode =    <&key>,"linux,code:0";
+		gpio_pull =  <&pin_state>,"brcm,pull:0";
+		// Allow setting the active_low flag. 0 = active high, 1 = active low
+		active_low = <&key>,"gpios:1";
 	};
 };

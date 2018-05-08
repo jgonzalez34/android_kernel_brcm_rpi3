@@ -41,13 +41,12 @@
 	
 	__overrides__ {
 		gpioA =      <&rotaryA>,"gpios:4",
-		             //<&key>,"reg:0",
-		             <&pin_state>,"brcm,pins:0",
-		             //<&pin_state>,"reg:0";
-		gpioB =	     <&rotaryB>,"gpios:4",
-		             //<&key>,"reg:0",
-		             <&pin_state>,"brcm,pins:4",
-		             //<&pin_state>,"reg:0";
+			     <&pin_state>,"brcm,pins:0",
+		              /* modify reg values to allow multiple instantiation */
+			     <&key>,"reg:0",		            
+		             <&pin_state>,"reg:0";
+		gpioB =	     <&rotaryB>,"gpios:4",		             
+		             <&pin_state>,"brcm,pins:4";		             
 		labelA =     <&rotaryA>,"label";
 		labelB =     <&rotaryB>,"label";
 		keycodeA =   <&rotaryA>,"linux,code:0";

@@ -37,7 +37,7 @@
 	};
 	
 	__overrides__ {
-		gpio =       <&key>,"gpios:17",
+		gpio =       <&key>,"gpios:4",
 		             <&keypad>,"reg:0",
 		             <&pin_state>,"brcm,pins:0",
 		             <&pin_state>,"reg:0";
@@ -45,6 +45,6 @@
 		keycode =    <&key>,"linux,code:0";
 		gpio_pull =  <&pin_state>,"brcm,pull:0";
 		// Allow setting the active_low flag. 0 = active high, 1 = active low
-		active_low = <&key>,"gpios:1";
+		active_low = <&key>,"gpios:8";
 	};
 };

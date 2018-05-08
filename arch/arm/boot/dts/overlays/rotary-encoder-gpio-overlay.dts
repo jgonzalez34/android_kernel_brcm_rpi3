@@ -40,21 +40,21 @@
 	};
 	
 	__overrides__ {
-		gpioA =      <&rotaryA>,"gpios:23",
-		             <&key>,"reg:0",
-		             <&pin_state>,"brcm,pins:0",
-		             <&pin_state>,"reg:0";
-		gpioB =	     <&rotaryB>,"gpios:24",
+		gpioA =      <&rotaryA>,"gpios:4",
 		             //<&key>,"reg:0",
 		             <&pin_state>,"brcm,pins:0",
-		             <&pin_state>,"reg:0";
+		             //<&pin_state>,"reg:0";
+		gpioB =	     <&rotaryB>,"gpios:4",
+		             //<&key>,"reg:0",
+		             <&pin_state>,"brcm,pins:4",
+		             //<&pin_state>,"reg:0";
 		labelA =     <&rotaryA>,"label";
 		labelB =     <&rotaryB>,"label";
 		keycodeA =   <&rotaryA>,"linux,code:0";
 		keycodeB =   <&rotaryB>,"linux,code:0";
 		gpio_pullA = <&pin_state>,"brcm,pull:0";
-		gpio_pullB = <&pin_state>,"brcm,pull:0";		
-		active_lowA =<&rotaryA>,"gpios:0";
-		active_lowB =<&rotaryB>,"gpios:0";
+		gpio_pullB = <&pin_state>,"brcm,pull:4";		
+		active_lowA =<&rotaryA>,"gpios:8";
+		active_lowB =<&rotaryB>,"gpios:8";
 	};
 };

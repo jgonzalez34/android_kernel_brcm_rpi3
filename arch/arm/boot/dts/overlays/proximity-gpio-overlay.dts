@@ -12,7 +12,7 @@
 			pin_state: key_pins@0 {
 				brcm,pins = <17>; 	// gpio number
 				brcm,function = <0>; 	// 0 = input, 1 = output
-				brcm,pull = <2>; 	// 0 = none, 1 = pull down, 2 = pull up
+				brcm,pull = <1>; 	// 0 = none, 1 = pull down, 2 = pull up
 			};
 		};
 	};
@@ -26,9 +26,10 @@
 				#size-cells = <0>;
 				
 				key: proximity {
-					label = "proximity detection";
-					linux,code = <61>;		// F3 Key
-					gpios = <&gpio 17 1>;		// GPIO 17
+					label = "proximity-detection";
+					linux,code = <11>;		// SW_FRONT_PROXIMITY
+					linux,input-type = <5>;		// EV_SW
+					gpios = <&gpio 17 0>;		// GPIO 17
 					wakeup-source;
 				};
 			};

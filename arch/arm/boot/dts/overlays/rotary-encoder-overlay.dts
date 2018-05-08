@@ -38,13 +38,13 @@
 	};  
 
 	__overrides__ {
-		pin_a =		    <&rotary>,"gpios:23",
-				    <&rotary_pins>,"brcm,pins:23",
+		pin_a =		    <&rotary>,"gpios:4",
+				    <&rotary_pins>,"brcm,pins:0",
 				    /* modify reg values to allow multiple instantiation */
 				    <&rotary>,"reg:0",
 				    <&rotary_pins>,"reg:0";
-		pin_b =		    <&rotary>,"gpios:24",
-				    <&rotary_pins>,"brcm,pins:24";
+		pin_b =		    <&rotary>,"gpios:16",
+				    <&rotary_pins>,"brcm,pins:4";
 		relative_axis =     <&rotary>,"rotary-encoder,relative-axis?";
 		linux_axis =        <&rotary>,"linux,axis:0";
 		rollover =          <&rotary>,"rotary-encoder,rollover?";
@@ -53,10 +53,10 @@
 		wakeup =            <&rotary>,"wakeup-source?";
 		encoding =          <&rotary>,"rotary-encoder,encoding";
                 /* legacy parameters*/
-		rotary0_pin_a =     <&rotary>,"gpios:23",
-		                    <&rotary_pins>,"brcm,pins:23";
-		rotary0_pin_b =     <&rotary>,"gpios:24",
-		                    <&rotary_pins>,"brcm,pins:24";
+		rotary0_pin_a =     <&rotary>,"gpios:4",
+		                    <&rotary_pins>,"brcm,pins:0";
+		rotary0_pin_b =     <&rotary>,"gpios:16",
+		                    <&rotary_pins>,"brcm,pins:4";
 	};
 };
 

@@ -920,6 +920,31 @@ Load:   dtoverlay=pps-gpio,<param>=<val>
 Params: gpiopin                 Input GPIO (default "18")
         assert_falling_edge     When present, assert is indicated by a falling
                                 edge, rather than by a rising edge
+                                
+                                
+Name:   proximity-gpio
+Info:   This is an overlay for activating GPIO keypresses using
+        the gpio-keys library and this dtoverlay. Multiple keys can be
+        set up using multiple calls to the overlay for configuring
+        additional buttons or joysticks. You can see available keycodes
+        at https://github.com/torvalds/linux/blob/v4.12/include/uapi/
+        linux/input-event-codes.h#L64
+Load:   dtoverlay=gpio-key,<param>=<val>
+Params: gpio                    GPIO pin to trigger on (default 17)
+        active_low              When this is 1 (active low), a falling
+                                edge generates a key down event and a
+                                rising edge generates a key up event.
+                                When this is 0 (active high), this is
+                                reversed. The default is 1 (active low)
+        gpio_pull               Desired pull-up/down state (off, down, up)
+                                Default is "up". Note that the default pin
+                                (GPIO17) has an external pulldown
+        label                   Set a label for the key
+        keycode                 Set the key code for the button
+        input-type              Set the type of key. Default type is 
+                                EV_KEY or 1. Other types and their
+                                correspondings numbers are found in the
+                                link above in Info.                                      
 
 
 Name:   pwm

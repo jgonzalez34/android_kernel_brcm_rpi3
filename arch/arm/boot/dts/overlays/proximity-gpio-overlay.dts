@@ -27,7 +27,7 @@
 				
 				key: proximity {
 					label = "proximity-detection";
-					linux,code = <61>;		// F3
+					linux,code = <143>;		// KEY_WAKEUP
 					linux,input-type = <1>;		// EV_KEY
 					gpios = <&gpio 17 0>;		// GPIO 17
 					wakeup-source;

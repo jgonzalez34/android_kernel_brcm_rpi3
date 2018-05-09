@@ -9,7 +9,7 @@
 		target = <&gpio>;
 		__overlay__ {
 			pin_state: button_pins@0 {
-				brcm,pins = <23 24>; 	// gpio 23 24
+				brcm,pins = <23 25>; 	// gpio 23 25
 				brcm,function = <0 0>; 	// 0 = input, 1 = output
 				brcm,pull = <1 1>; 	// 0 = none, 1 = pull down, 2 = pull up
 			};
@@ -29,10 +29,10 @@
 					gpios = <&gpio 23 0>;   // GPIO 23				
 					wakeup-source;					
 				};
-        			rotaryB: rotaryB@24 {				
+        			rotaryB: rotaryB@25 {				
           				label = "rotaryB";
 					linux,code = <60>;      // F2 Key
-					gpios = <&gpio 24 0>;   // GPIO 24					
+					gpios = <&gpio 25 0>;   // GPIO 25					
 					wakeup-source;					
         			};
 			};
